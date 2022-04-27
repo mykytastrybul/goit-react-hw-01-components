@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import s from './StatisticsList.module.css';
 
-export default function Statistics({ stats }) {
+export default function Statistics({ stats, title }) {
     return (
         <section className={s.statistics}>
-            <h2 className={s.title}>Upload stats</h2>
+            {title ? <h2 className={s.title}>{title}</h2> : ''}
             <ul className={s.stat__list}>
                 {stats.map(({ id, label, percentage }) => {
                     return (
@@ -24,7 +24,10 @@ export default function Statistics({ stats }) {
 }
 
 Statistics.propTypes = {
-    id: PropTypes.number,
-    label: PropTypes.string,
-    percentage: PropTypes.number
+    title: PropTypes.string,
+    stats: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string,
+        label: PropTypes.string,
+        percentage: PropTypes.number
+    }))
 }

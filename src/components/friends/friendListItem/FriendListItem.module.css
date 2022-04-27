@@ -27,3 +27,17 @@
     composes: status;
     background-color: red;
 }
+
+.item {
+    display: flex;
+    align-items: center;
+    width: 280px;
+    padding: 10px;
+    box-shadow: 5px 5px 15px 5px #000000;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.item:not(:last-child) {
+    margin-bottom: 10px;
+}
